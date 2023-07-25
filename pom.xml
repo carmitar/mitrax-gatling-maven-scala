@@ -13,9 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <gatling.version>${project.version}</gatling.version>
     <gatling-maven-plugin.version>4.3.7</gatling-maven-plugin.version>
-    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-    <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
+    <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <scala-maven-plugin.version>4.8.1</scala-maven-plugin.version>
   </properties>
 
@@ -24,21 +22,22 @@
       <groupId>io.gatling.highcharts</groupId>
       <artifactId>gatling-charts-highcharts</artifactId>
       <version>${gatling.version}</version>
-      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.gatling</groupId>
+      <artifactId>gatling-app</artifactId>
+      <version>${gatling.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.gatling</groupId>
+      <artifactId>gatling-recorder</artifactId>
+      <version>${gatling.version}</version>
     </dependency>
   </dependencies>
 
   <build>
     <testSourceDirectory>src/test/scala</testSourceDirectory>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>${maven-resources-plugin.version}</version>
-      </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>${maven-jar-plugin.version}</version>
@@ -57,6 +56,7 @@
                 <jvmArg>-Xss100M</jvmArg>
               </jvmArgs>
               <args>
+                <arg>-target:jvm-1.8</arg>
                 <arg>-deprecation</arg>
                 <arg>-feature</arg>
                 <arg>-unchecked</arg>
@@ -71,10 +71,6 @@
         <groupId>io.gatling</groupId>
         <artifactId>gatling-maven-plugin</artifactId>
         <version>${gatling-maven-plugin.version}</version>
-        <configuration>
-          <!-- Enterprise Cloud (https://cloud.gatling.io/) configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-cloud -->
-          <!-- Enterprise Self-Hosted configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-self-hosted -->
-        </configuration>
       </plugin>
     </plugins>
   </build>

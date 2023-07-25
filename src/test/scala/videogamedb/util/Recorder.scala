@@ -1,3 +1,5 @@
+package videogamedb.util
+
 import io.gatling.recorder.GatlingRecorder
 import io.gatling.recorder.config.RecorderPropertiesBuilder
 
