@@ -10,6 +10,12 @@
 If those parameters are not defined, then default parameters will be injected
 
 ## Running the tests
+1. Go to util -> Engine
+2. Right-click on Run
+3. Choose the index number of the test that you want to run
+4. Enter the note and click enter
+
+## Running from terminal Mac OS
 mvn gatling:test -Dgatling.simulationClass="simulations.LoadOneThousandUsersPerSecond" -Denv=staging -DUSERS=10000 -DRAMP_DURATION=1 -DDURATION=30
 
 ## Running the tests on Windows environment
