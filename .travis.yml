@@ -1,4 +1,0 @@
-language: scala
-sudo: false
-
-script: "mvn gatling:test `-Dgatling.simulationClass="simulations.PerformanceScenario" `-Denv=dev `-DUSERS=10 `-DRAMP_DURATION=10 `-DDURATION=30"
