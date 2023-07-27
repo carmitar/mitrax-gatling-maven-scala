@@ -41,6 +41,12 @@ class PerformanceScenario extends BaseSimulation{
   )
     .protocols(httpConf(baseUrl = baseUrl))
     .maxDuration(testDuration.seconds)
+    .assertions(
+      //response time lte - less then
+      global.responseTime.max.lte(2),
+      //successful request greater then
+      global.successfulRequests.percent.gt(99)
+    )
 
   after {
     println("Stress test completed")
